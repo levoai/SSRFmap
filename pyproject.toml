@@ -1,11 +1,18 @@
 [tool.poetry]
 name = "levo-ssrfmap"
-version = "0.1.0"
+version = "0.1.1"
 description = "A packaged version of the SSRFmap CLI tool."
-authors = ["Akshath Kothari <akshath.kothari@levo.ai>"]
+authors = ["Swissky"]
+maintainers = ["Akshath Kothari <akshath.kothari@levo.ai>"]
 packages = [
     {include = "ssrfmap", from = "src"}
 ]
+repository = "https://github.com/levoai/SSRFmap"
+license = "MIT"
+
+[tool.poetry.urls]
+"Parent Repository" = "https://github.com/swisskyrepo/SSRFmap"
+"Levo Homepage" = "https://levo.ai"
 
 [tool.poetry.dependencies]
 python = "^3.9"
