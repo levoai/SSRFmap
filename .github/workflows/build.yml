@@ -7,6 +7,7 @@ on:
       - '.github/workflows/*.yml'
       - '.pre-commit-config.yaml'
       - '.relint.yml'
+      - '.yamllint'
       - 'poetry.lock'
       - 'pyproject.toml'
   push:
