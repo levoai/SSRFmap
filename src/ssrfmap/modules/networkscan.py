@@ -4,17 +4,18 @@ import socket
 import struct
 import sys
 from datetime import datetime
+from typing import List, Set
 
 from ssrfmap.core.utils import wrapper_http
 
 name = "networkscan"
 description = "Scan the network - HTTP Ping sweep"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:
-    ips: set[str] = set()
+    ips: Set[str] = set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

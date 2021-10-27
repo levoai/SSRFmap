@@ -1,18 +1,19 @@
 import logging
 import os
+from typing import List, Set, Tuple
 
 from ssrfmap.core.utils import diff_text, wrapper_http
 
 name = "digitalocean"
 description = "Access sensitive data from the Digital Ocean provider"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://developers.digitalocean.com/documentation/metadata/"
 ]
 
 
 class exploit:
-    endpoints: set[tuple[str, str]] = set()
+    endpoints: Set[Tuple[str, str]] = set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

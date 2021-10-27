@@ -1,12 +1,13 @@
 import logging
 import os
+from typing import List, Set, Tuple
 
 from ssrfmap.core.utils import diff_text, wrapper_http
 
 name = "aws"
 description = "Access sensitive data from AWS"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://hackerone.com/reports/53088",
     "https://hackerone.com/reports/285380",
     "https://blog.christophetd.fr/abusing-aws-metadata-service-using-ssrf-vulnerabilities/",
@@ -15,7 +16,7 @@ documentation: list[str] = [
 
 
 class exploit:
-    endpoints: set[tuple[str, str, str]] = set()
+    endpoints: Set[Tuple[str, str, str]] = set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

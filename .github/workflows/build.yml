@@ -35,8 +35,6 @@ jobs:
 
   mypy:
     name: Mypy
-    # Disable this for now. We should fix all mypy failures and enable later.
-    if: false
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2

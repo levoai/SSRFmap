@@ -1,12 +1,13 @@
 import logging
 import urllib.parse
+from typing import List
 
 from ssrfmap.core.utils import wrapper_http
 
 name = "github"
 description = "Github Enterprise RCE < 2.8.7"
 author = "Orange"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://www.exploit-db.com/exploits/42392/",
     "https://blog.orange.tw/2017/07/how-i-chained-4-vulnerabilities-on.html",
 ]

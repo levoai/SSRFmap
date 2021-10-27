@@ -1,11 +1,12 @@
 import logging
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
 name = "servicename in lowercase"
 description = "ServiceName RCE - What does it do"
 author = "Name or pseudo of the author"
-documentation: list[str] = ["http://link_to_a_research", "http://another_link"]
+documentation: List[str] = ["http://link_to_a_research", "http://another_link"]
 
 
 class exploit:

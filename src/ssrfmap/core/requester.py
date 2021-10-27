@@ -2,6 +2,7 @@ import json
 import logging
 import re
 import urllib.parse
+from typing import Dict, List
 from urllib.parse import urlparse
 
 import requests
@@ -16,8 +17,8 @@ class Requester(object):
     method = ""
     action = ""
     headers: CaseInsensitiveDict = CaseInsensitiveDict()
-    data: dict[str, str] = {}
-    interactions: list[Interaction] = []
+    data: Dict[str, str] = {}
+    interactions: List[Interaction] = []
 
     def __init__(self, path, uagent, ssl):
         try:

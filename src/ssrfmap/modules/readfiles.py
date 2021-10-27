@@ -1,6 +1,7 @@
 import logging
 import os
 from argparse import ArgumentParser
+from typing import List
 
 from levo_commons.status import Status
 
@@ -9,7 +10,7 @@ from ssrfmap.core.utils import diff_text, wrapper_file
 name = "readfiles"
 description = "Read files from the target"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

@@ -4,6 +4,7 @@ import os
 import time
 from importlib.machinery import SourceFileLoader
 from pathlib import Path
+from typing import Set
 
 from ssrfmap.core.config import SsrfmapConfig
 from ssrfmap.core.handler import Handler
@@ -11,7 +12,7 @@ from ssrfmap.core.requester import Requester
 
 
 class SSRF(object):
-    modules: set[object] = set()
+    modules: Set[object] = set()
 
     def __init__(self, config: SsrfmapConfig):
 
