@@ -1,12 +1,13 @@
 import logging
 import os
+from typing import List, Set, Tuple
 
 from ssrfmap.core.utils import diff_text, wrapper_http
 
 name = "gce"
 description = "Access sensitive data from GCE"
 author = "mrtc0"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://cloud.google.com/compute/docs/storing-retrieving-metadata",
     "https://hackerone.com/reports/341876",
     "https://blog.ssrf.in/post/example-of-attack-on-gce-and-gke-instance-using-ssrf-vulnerability/",
@@ -14,7 +15,7 @@ documentation: list[str] = [
 
 
 class exploit:
-    endpoints: set[tuple[str, str]] = set()
+    endpoints: Set[Tuple[str, str]] = Set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

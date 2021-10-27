@@ -1,5 +1,6 @@
 import binascii
 import logging
+from typing import List
 
 from ssrfmap.core.utils import diff_text, gen_ip_list, wrapper_gopher
 
@@ -9,7 +10,7 @@ from ssrfmap.core.utils import diff_text, gen_ip_list, wrapper_gopher
 name = "mysql"
 description = "Execute MySQL command < 8.0"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://spyclub.tech/2018/02/05/2018-02-05-ssrf-through-gopher/",
     "https://github.com/eboda/34c3ctf/tree/master/extract0r",
     "https://infosec.rm-it.de/2018/07/29/isitdtu-ctf-2018-friss/",

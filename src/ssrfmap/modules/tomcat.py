@@ -7,6 +7,7 @@ import re
 import sys
 import urllib
 import zipfile
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher, wrapper_http
 
@@ -18,7 +19,7 @@ from ssrfmap.core.utils import gen_ip_list, wrapper_gopher, wrapper_http
 name = "tomcat"
 description = "Tomcat - Bruteforce manager and WAR uploader"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://tomcat.apache.org/tomcat-7.0-doc/manager-howto.html",
     "https://github.com/netbiosX/Default-Credentials/blob/master/Apache-Tomcat-Default-Passwords.mdown",
     "https://github.com/pimps/gopher-tomcat-deployer",

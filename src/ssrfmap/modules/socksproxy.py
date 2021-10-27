@@ -2,6 +2,7 @@ import _thread
 import binascii
 import logging
 import urllib.parse
+from typing import List
 from urllib.request import urlopen
 
 from ssrfmap.core.utils import socket, struct, wrapper_gopher
@@ -18,7 +19,7 @@ from ssrfmap.core.utils import socket, struct, wrapper_gopher
 name = "socksproxy"
 description = "SOCKS Proxy  - Socks4"
 author = "Swissky"
-documentation: list[str] = [
+documentation: List[str] = [
     "https://github.com/iamultra/ssrfsocks",
     "https://media.blackhat.com/bh-us-12/Briefings/Polyakov/BH_US_12_Polyakov_SSRF_Business_Slides.pdf",
 ]

@@ -1,6 +1,7 @@
 import json
 import logging
 import urllib.parse
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_http
 
@@ -11,7 +12,7 @@ from ssrfmap.core.utils import gen_ip_list, wrapper_http
 name = "docker"
 description = "Docker Infoleaks via Open Docker API"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

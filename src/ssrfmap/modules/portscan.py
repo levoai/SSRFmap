@@ -1,13 +1,14 @@
 import concurrent.futures
 import logging
 from datetime import datetime
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_http
 
 name = "portscan"
 description = "Scan ports of the target"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

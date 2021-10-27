@@ -1,11 +1,12 @@
 import logging
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
 name = "fastcgi"
 description = "FastCGI RCE"
 author = "Unknown"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

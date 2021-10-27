@@ -1,6 +1,7 @@
 import logging
 import re
 import urllib.parse
+from typing import List
 
 from ssrfmap.core.handler import Handler
 from ssrfmap.core.utils import wrapper_http
@@ -19,7 +20,7 @@ Use ssh/autossh to established remote tunnel between public and localhost handle
 name = "httpcollaborator"
 description = "This module act like burpsuite collaborator through http protocol to detect if target parameters are prone to ssrf"
 author = "xyzkab"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:

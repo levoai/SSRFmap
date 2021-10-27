@@ -1,16 +1,17 @@
 import logging
 import os
+from typing import List, Set, Tuple
 
 from ssrfmap.core.utils import diff_text, wrapper_http
 
 name = "alibaba"
 description = "Access sensitive data from the Alibaba Cloud"
 author = "Swissky"
-documentation: list[str] = [""]
+documentation: List[str] = [""]
 
 
 class exploit:
-    endpoints: set[tuple[str, str]] = set()
+    endpoints: Set[Tuple[str, str]] = Set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

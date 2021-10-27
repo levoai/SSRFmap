@@ -1,5 +1,6 @@
 import logging
 import urllib.parse as urllib
+from typing import List
 
 from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 
@@ -9,7 +10,7 @@ from ssrfmap.core.utils import gen_ip_list, wrapper_gopher
 name = "zabbix"
 description = "Zabbix RCE"
 author = "Swissky"
-documentation: list[str] = []
+documentation: List[str] = []
 
 
 class exploit:
