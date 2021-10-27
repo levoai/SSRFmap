@@ -27,7 +27,9 @@ jobs:
         with:
           python-version: 3.7
 
-      - run: pip install pre-commit
+      - run: pip install poetry
+      - run: poetry install
+      - run: poetry run pip install pre-commit
       - run: SKIP=pylint,mypy pre-commit run --all-files
 
   mypy:
