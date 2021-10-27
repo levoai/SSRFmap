@@ -30,7 +30,7 @@ jobs:
       - run: pip install poetry
       - run: poetry install
       - run: poetry run pip install pre-commit
-      - run: SKIP=pylint,mypy pre-commit run --all-files
+      - run: SKIP=pylint,mypy poetry run pre-commit run --all-files
 
   mypy:
     name: Mypy
