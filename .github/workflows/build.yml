@@ -1,0 +1,51 @@
+name: Build jobs
+
+on:
+  pull_request:
+    paths:
+      - '**/*.py'
+      - '.github/workflows/*.yml'
+      - '.pre-commit-config.yaml'
+      - '.relint.yml'
+      - '.yamllint'
+      - 'poetry.lock'
+      - 'pyproject.toml'
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  pre-commit:
+    name: Generic pre-commit checks
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - run: pip install poetry
+      - run: poetry install
+      - run: poetry run pip install pre-commit
+      - run: SKIP=pylint,mypy poetry run pre-commit run --all-files
+
+  mypy:
+    name: Mypy
+    # Disable this for now. We should fix all mypy failures and enable later.
+    if: false
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+
+      - run: pip install pre-commit
+      - run: pre-commit run mypy --all-files
