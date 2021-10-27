@@ -12,7 +12,7 @@ from ssrfmap.core.requester import Requester
 
 
 class SSRF(object):
-    modules: Set[object] = Set()
+    modules: Set[object] = set()
 
     def __init__(self, config: SsrfmapConfig):
 

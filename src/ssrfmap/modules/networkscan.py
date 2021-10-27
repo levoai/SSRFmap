@@ -15,7 +15,7 @@ documentation: List[str] = []
 
 
 class exploit:
-    ips: Set[str] = Set()
+    ips: Set[str] = set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))

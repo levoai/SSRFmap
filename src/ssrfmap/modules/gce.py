@@ -15,7 +15,7 @@ documentation: List[str] = [
 
 
 class exploit:
-    endpoints: Set[Tuple[str, str]] = Set()
+    endpoints: Set[Tuple[str, str]] = set()
 
     def __init__(self, requester, args):
         logging.info("Module '{}' launched !".format(name))
