@@ -13,20 +13,20 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "SSRF Example!"
+    return "Simple SSRF Demo App"
 
 
-# curl -i -X POST -d 'url=http://example.com' http://localhost:5000/ssrf
-@app.route("/ssrf", methods=["POST"])
-def ssrf():
+# curl -i -X POST -d 'url=http://example.com' http://localhost:5000/form-data
+@app.route("/form-data", methods=["POST"])
+def curl_post_form_data():
     data = request.values
     content = command("curl {}".format(data.get("url")))
     return content
 
 
-# curl -i -H "Content-Type: application/json" -X POST -d '{"url": "http://example.com"}' http://localhost:5000/ssrf2
-@app.route("/ssrf2", methods=["POST"])
-def ssrf2():
+# curl -i -H "Content-Type: application/json" -X POST -d '{"url": "http://example.com"}' http://localhost:5000/json
+@app.route("/json", methods=["POST"])
+def curl_post_json():
     data = request.json
     print(data)
     print(data.get("url"))
@@ -34,17 +34,17 @@ def ssrf2():
     return content
 
 
-# curl -v "http://127.0.0.1:5000/ssrf3?url=http://example.com"
-@app.route("/ssrf3", methods=["GET"])
-def ssrf3():
+# curl -v "http://127.0.0.1:5000/query-string?url=http://example.com"
+@app.route("/query-string", methods=["GET"])
+def curl_get_query_string():
     data = request.values
     content = command("curl {}".format(data.get("url")))
     return content
 
 
-# curl -X POST -H "Content-Type: application/xml" -d '<run><log encoding="hexBinary">4142430A</log><result>0</result><url>http://google.com</url></run>' http://127.0.0.1:5000/ssrf4
-@app.route("/ssrf4", methods=["POST"])
-def ssrf4():
+# curl -X POST -H "Content-Type: application/xml" -d '<run><log encoding="hexBinary">4142430A</log><result>0</result><url>http://google.com</url></run>' http://127.0.0.1:5000/xml
+@app.route("/xml", methods=["POST"])
+def curl_post_xml():
     data = request.data
     print(data.decode())
     regex = re.compile("url>(.*?)</url")
