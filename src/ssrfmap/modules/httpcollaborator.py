@@ -9,7 +9,7 @@ from ssrfmap.core.utils import wrapper_http
 """
 Example:
 ```
-~$ python3 ssrfmap.py -v -r data/request.txt -p url,path --lhost=public-ip --lport 4242 -m httpcollaborator -l http
+~$ python3 ssrfmap.py -v -r demo/request.txt -p url,path --lhost=public-ip --lport 4242 -m httpcollaborator -l http
 ```
 Use ssh/autossh to established remote tunnel between public and localhost handler if running module locally against remote target
 ```

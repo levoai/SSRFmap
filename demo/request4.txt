@@ -1,4 +1,4 @@
-POST /ssrf4 HTTP/1.1
+POST /xml HTTP/1.1
 User-Agent: User-agent
 Host: 127.0.0.1:5000
 Connection: close

@@ -21,11 +21,11 @@ def display_banner():
 
 def parse_args():
     example_text = """Examples:
-    ssrfmap -r data/request2.txt -p url -m portscan
-    ssrfmap -r data/request.txt -p url -m redis
-    ssrfmap -r data/request.txt -p url -m portscan --ssl --uagent "SSRFmapAgent"
-    ssrfmap -r data/request.txt -p url -m redis --lhost=127.0.0.1 --lport=4242 -l 4242
-    ssrfmap -r data/request.txt -p url -m readfiles --rfiles
+    ssrfmap -r demo/request2.txt -p url -m portscan
+    ssrfmap -r demo/request.txt -p url -m redis
+    ssrfmap -r demo/request.txt -p url -m portscan --ssl --uagent "SSRFmapAgent"
+    ssrfmap -r demo/request.txt -p url -m redis --lhost=127.0.0.1 --lport=4242 -l 4242
+    ssrfmap -r demo/request.txt -p url -m readfiles --rfiles
     """
     parser = argparse.ArgumentParser(
         epilog=example_text, formatter_class=argparse.RawDescriptionHelpFormatter
