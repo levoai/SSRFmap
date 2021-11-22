@@ -162,7 +162,7 @@ class Requester(object):
             exit()
         self.interactions.append(
             Interaction.from_requests(
-                r, Status.success if 200 <= r.status_code <= 299 else Status.error, []
+                r, Status.success if 200 <= r.status_code <= 299 else Status.error
             )
         )
         return r
