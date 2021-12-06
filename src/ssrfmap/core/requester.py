@@ -26,8 +26,9 @@ class Requester(object):
             with open(path, "r") as f:
                 content = f.read().strip()
         except IOError as e:
-            logging.error("File not found")
-            exit()
+            logging.error(f"File {path} not found")
+            # Raise the exception again so that the caller will know and handle it
+            raise e
 
         try:
             content = content.split("\n\n", 1)
@@ -62,7 +63,8 @@ class Requester(object):
 
         except Exception as e:
             logging.warning(f"Bad Format or Raw data: {e}")
-            exit()
+            # Raise the exception again so that the caller will know and handle it
+            raise e
 
     def data_to_dict(self, data):
         if data is None:
@@ -94,6 +96,7 @@ class Requester(object):
                         self.data[name] = value
 
     def do_request(self, param, value, timeout=3, stream=False):
+        request = None
         try:
             if self.method == "POST":
                 # Copying data to avoid multiple variables edit
@@ -107,7 +110,7 @@ class Requester(object):
                         self.headers["Content-Type"]
                         and "application/json" in self.headers["Content-Type"]
                     ):
-                        r = requests.post(
+                        request = requests.post(
                             self.protocol + "://" + self.host + self.action,
                             headers=self.headers,
                             json=data_injected,
@@ -118,7 +121,7 @@ class Requester(object):
 
                     # Handle FORM data
                     else:
-                        r = requests.post(
+                        request = requests.post(
                             self.protocol + "://" + self.host + self.action,
                             headers=self.headers,
                             data=data_injected,
@@ -135,7 +138,7 @@ class Requester(object):
                     data_xml = data_injected["__xml__"]
                     data_xml = data_xml.replace("*FUZZ*", value)
 
-                    r = requests.post(
+                    request = requests.post(
                         self.protocol + "://" + self.host + self.action,
                         headers=self.headers,
                         data=data_xml,
@@ -144,13 +147,13 @@ class Requester(object):
                         verify=False,
                     )
                 else:
-                    raise Exception("No injection point found.")
+                    logging.debug("No injection point found")
             else:
                 # String is immutable, we don't have to do a "forced" copy
                 regex = re.compile(param + "=(\w+)")
                 value = urllib.parse.quote(value, safe="")
                 data_injected = re.sub(regex, param + "=" + value, self.action)
-                r = requests.get(
+                request = requests.get(
                     self.protocol + "://" + self.host + data_injected,
                     headers=self.headers,
                     timeout=timeout,
@@ -159,12 +162,18 @@ class Requester(object):
                 )
         except Exception as e:
             logging.error(e)
-        self.interactions.append(
-            Interaction.from_requests(
-                r, Status.success if 200 <= r.status_code <= 299 else Status.error
+            # Raise the exception again so that the caller will know and handle it
+            raise e
+        if request:
+            self.interactions.append(
+                Interaction.from_requests(
+                    request,
+                    Status.success
+                    if 200 <= request.status_code <= 299
+                    else Status.error,
+                )
             )
-        )
-        return r
+        return request
 
     def __str__(self):
         text = self.method + " "

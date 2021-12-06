@@ -61,4 +61,5 @@ class SSRF(object):
             self.handler = SourceFileLoader(handler_file, location).load_module()
         except Exception as e:
             logging.error("Invalid no such handler: {}".format(name))
-            exit(1)
+            # Raise the exception again so that the caller will know and handle it
+            raise e
