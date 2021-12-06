@@ -159,7 +159,6 @@ class Requester(object):
                 )
         except Exception as e:
             logging.error(e)
-            exit()
         self.interactions.append(
             Interaction.from_requests(
                 r, Status.success if 200 <= r.status_code <= 299 else Status.error
